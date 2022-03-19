@@ -12,15 +12,8 @@ import { MockedHeroData } from '../MockedHeroData';
 export class HerosComponent implements OnInit {
 	heroes: Hero[] = [];
 
-	selectedHero?: Hero = undefined;
-
 	GetHeroes() {
 		this.heroService.GetHeroes().subscribe(obj => this.heroes = obj);
-	}
-
-	OnSelect(hero: Hero) {
-		this.selectedHero = hero;
-		this.messageService.Add(`HerosCmponent: Selected hero id=${hero.id}`);
 	}
 
 	constructor(private heroService: HeroService,private messageService:MessageService) { }

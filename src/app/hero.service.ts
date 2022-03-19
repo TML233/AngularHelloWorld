@@ -16,4 +16,9 @@ export class HeroService {
 		this.messageService.Add("HeroService: fetched heroes.");
 		return data;
 	}
+	GetHero(id:number):Observable<Hero>{
+		let hero=MockedHeroData.find(obj=>obj.id==id)!;
+		this.messageService.Add(`HeroMessage: fetched hero ${id}`);
+		return of(hero);
+	}
 }
